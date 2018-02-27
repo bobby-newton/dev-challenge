@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Cordant/dev-challenge#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "node-fetch": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.15.1"

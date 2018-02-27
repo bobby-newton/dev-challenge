@@ -10,6 +10,6 @@ routes(app);
 
 const port = 3000;
 
-const server = app.listen(port, function () {
-    console.log("app running on port", server.address().port);
+const server = app.listen(port, () => {
+  console.log("app running on port", server.address().port);
 });
