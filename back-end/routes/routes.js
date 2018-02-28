@@ -1,9 +1,11 @@
 "use strict";
 const fetch = require("node-fetch");
+const path = require("path");
 
 const appRouter = app => {
+
   app.get("/", function(req, res) {
-    res.status(200).send("Welcome!");
+    res.status(200).sendFile("index.html");
   });
 
   app.get("/users", (req, res) => {
