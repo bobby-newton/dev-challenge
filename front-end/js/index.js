@@ -35,6 +35,7 @@ var ViewModel = function () {
     self.onClickUser = function (user) {
         self.user(user.name);
         self.showAlbums(true);
+        self.photos([]);
 
         // Load user albums from JSONPlaceholder, convert it to Album instances, then populate self.albums
         $.getJSON("https://jsonplaceholder.typicode.com/albums", {
