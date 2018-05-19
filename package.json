@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/Cordant/dev-challenge#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "node-fetch": "^2.0.0"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.2",
+    "npm": "^6.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.15.1"
+    "knockout": "^3.4.2",
+    "knockout-init": "^1.0.0",
+    "nodemon": "^1.17.4"
   }
 }

@@ -1,0 +1,243 @@
+/* @author Bobby Newton | bobdevop@gmail.com
+*  
+*  The CSS below is based upon the principles and guidelines taught at https://www.w3schools.com/css/css_rwd_intro.asp
+*/
+
+html,
+body,
+footer {
+    font-family: "Lucida Sans", sans-serif;
+    background-color: #3b0d0c;
+}
+
+h1 {
+    font-size: 36px;
+    /* fallback: */
+    font-size: 5.9vw;
+}
+
+h2 {
+    font-size: 18px;
+    /* fallback: */
+    font-size: 3.0vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 12px;
+    /* fallback: */
+    font-size: 2vmin;
+}
+
+table {
+    font-size: 12px;
+    /* fallback: */
+    font-size: 2vmin;
+}
+
+.header {
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.footer {
+    color: #ffffff;
+}
+
+/* Make sure every item includes the border and padding in the width and height. */
+
+* {
+    box-sizing: border-box;
+}
+
+/*  Set all columns to float to the left with padding 15px */
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+
+/* Clears the flow so that columns do not float to the left */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.list-albums {
+    height: auto;
+    overflow: auto;
+    border-bottom: 0px solid red;
+}
+
+.list-albums ul {
+    list-style-type: none;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+}
+
+.list-albums li {
+    display: inline-block;
+    padding: 8px;
+    margin-bottom: 7px;
+    color: #000000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.24);
+    min-width: 150px;
+    max-height: 150px;
+}
+
+.list-users {
+    height: auto;
+    overflow: auto;
+}
+
+.list-users ul {
+    list-style-type: none;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+}
+
+.list-users li {
+    display: inline-block;
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33B3E5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    min-width: 150px;
+    max-height: 150px;
+}
+
+.list-users li:hover {
+    background-color: #0099cc;
+}
+
+.list-photos {
+    display: inherit;
+}
+
+.list-photos img {
+    display: inline-block;
+    padding: 8px;
+    margin-bottom: 7px;
+    color: #ffffff;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.list-photos h2 {
+    display: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+}
+
+.list-photos ul {
+    list-style-type: none;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+}
+
+
+/* Screens where width is greater than height */
+@media only screen and (orientation: landscape) {
+
+        .col-land-1 {
+            width: 8.33%;
+        }
+        .col-land-2 {
+            width: 16.66%;
+        }
+        .col-land-3 {
+            width: 25%;
+        }
+        .col-land-4 {
+            width: 33.33%;
+        }
+        .col-land-5 {
+            width: 41.66%;
+        }
+        .col-land-6 {
+            width: 50%;
+        }
+        .col-land-7 {
+            width: 58.33%;
+        }
+        .col-land-8 {
+            width: 66.66%;
+        }
+        .col-land-9 {
+            width: 75%;
+        }
+        .col-land-10 {
+            width: 83.33%;
+        }
+        .col-land-11 {
+            width: 91.66%;
+        }
+        .col-land-12 {
+            width: 100%;
+        }
+
+        
+}
+
+/* Screens height is greater than width */
+@media only screen and (orientation: portrait) {
+
+    .col-port-1 {
+        width: 8.33%;
+    }
+    .col-port-2 {
+        width: 16.66%;
+    }
+    .col-port-3 {
+        width: 25%;
+    }
+    .col-port-4 {
+        width: 33.33%;
+    }
+    .col-port-5 {
+        width: 41.66%;
+    }
+    .col-port-6 {
+        width: 50%;
+    }
+    .col-port-7 {
+        width: 58.33%;
+    }
+    .col-port-8 {
+        width: 66.66%;
+    }
+    .col-port-9 {
+        width: 75%;
+    }
+    .col-port-10 {
+        width: 83.33%;
+    }
+    .col-port-11 {
+        width: 91.66%;
+    }
+    .col-port-12 {
+        width: 100%;
+    }
+
+    .list-users {
+        visibility: hidden;
+    }
+
+    .menu-users {
+        visibility: visible;
+    }
+}
