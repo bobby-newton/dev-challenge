@@ -32,36 +32,29 @@ var ViewModel = function () {
     self.photos = ko.observableArray([]);
 
     // Operations
-    self.onClickUser = function(user) {
+    self.onClickUser = function (user) {
         self.user(user.name);
         self.showAlbums(true);
 
         // Load user albums from JSONPlaceholder, convert it to Album instances, then populate self.albums
-        $.getJSON("https://jsonplaceholder.typicode.com/albums", function (allData) {
+        $.getJSON("https://jsonplaceholder.typicode.com/albums", {
+            "userId": user.id
+        }, function (allData) {
             var mappedAlbums = $.map(allData, function (data) {
-                if (data.userId === user.id) {
-                    return new Album(data);
-                } else {
-                    return undefined;
-                }
+                return new Album(data);
             });
-
             self.albums(mappedAlbums);
         });
     };
 
-    self.onClickAlbum = function() {
-
+    self.onClickAlbum = function () {
         // Load album photos from JSONPlaceholder, convert it to Photos instances, then populate self.photos
-        $.getJSON("https://jsonplaceholder.typicode.com/photos", function (allData) {
+        $.getJSON("https://jsonplaceholder.typicode.com/photos", {
+            "albumId": self.album().id
+        }, function (allData) {
             var mappedPhotos = $.map(allData, function (data) {
-                if (data.albumId === self.album().id) {
-                    return new Photo(data);
-                } else {
-                    return undefined;
-                }
+                return new Photo(data);
             });
-
             self.photos(mappedPhotos);
         });
     }
