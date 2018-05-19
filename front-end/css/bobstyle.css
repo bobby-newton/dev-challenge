@@ -47,6 +47,21 @@ table {
     font-size: 2vmin;
 }
 
+/* unvisited link */
+a:link {
+    color: #606f7b;
+}
+
+/* visited link */
+a:visited {
+    color: #606f7b;
+}
+
+/* mouse over link */
+a:hover {
+    color: #f6993f;
+}
+
 .header {
     color: #ffffff;
     padding: 15px;
@@ -69,7 +84,7 @@ table {
     padding: 15px;
 
     /* Uncoment for development */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 /* Clears the flow so that columns do not float to the left */
@@ -81,20 +96,25 @@ table {
 
 .list-albums {
     height: 10vh;
-    border-bottom: 0px solid red;
     text-align: center;
 }
 
 .list-users {
+    display: table;
     height: 90vh;
-    overflow-y: auto;
+    overflow: hidden;
+}
+
+.list-users-content {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .list-users ul {
     list-style-type: none;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
-    padding: 0;
+    padding: 2px;
 }
 
 .list-users li {
@@ -105,8 +125,6 @@ table {
     color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     width: 100%;
-    min-width: 150px;
-    max-height: 150px;
 }
 
 .list-users li:hover {
@@ -114,7 +132,7 @@ table {
 }
 
 .list-photos {
-    height: 80vh;
+    height: 75vh;
     overflow-y: auto;
     text-align: center;
 }
