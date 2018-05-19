@@ -8,11 +8,6 @@ const appRouter = app => {
     res.status(200).sendFile("index.html");
   });
 
-  app.get("/users", (req, res) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(data => res.status(200).send(data));
-  });
 };
 
 module.exports = appRouter;
