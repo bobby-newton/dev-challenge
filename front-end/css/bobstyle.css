@@ -7,7 +7,7 @@ html,
 body,
 footer {
     font-family: "Lucida Sans", sans-serif;
-    background-color: #3b0d0c;
+    background-color: #dae1e7;
 }
 
 h1 {
@@ -17,9 +17,17 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 16px;
     /* fallback: */
-    font-size: 3.0vh;
+    font-size: 2.0vh;
+}
+
+h3 {
+    font-size: 12px;
+    /* fallback: */
+    font-size: 1.8vh;
+    font-style: italic;
+    color: #606f7b;
 }
 
 img {
@@ -47,25 +55,24 @@ table {
 }
 
 .footer {
-    color: #ffffff;
+    height: 9vh;
 }
 
 /* Make sure every item includes the border and padding in the width and height. */
-
 * {
     box-sizing: border-box;
 }
 
 /*  Set all columns to float to the left with padding 15px */
-
 [class*="col-"] {
     float: left;
     padding: 15px;
+
+    /* Uncoment for development */
     border: 1px solid red;
 }
 
 /* Clears the flow so that columns do not float to the left */
-
 .row::after {
     content: "";
     clear: both;
@@ -73,31 +80,14 @@ table {
 }
 
 .list-albums {
-    height: auto;
-    overflow: auto;
+    height: 10vh;
     border-bottom: 0px solid red;
-}
-
-.list-albums ul {
-    list-style-type: none;
-    margin: auto;
     text-align: center;
-    padding: 0;
-}
-
-.list-albums li {
-    display: inline-block;
-    padding: 8px;
-    margin-bottom: 7px;
-    color: #000000;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.24);
-    min-width: 150px;
-    max-height: 150px;
 }
 
 .list-users {
-    height: auto;
-    overflow: auto;
+    height: 90vh;
+    overflow-y: auto;
 }
 
 .list-users ul {
@@ -110,45 +100,38 @@ table {
 .list-users li {
     display: inline-block;
     padding: 8px;
-    margin-bottom: 7px;
+    margin: 2px;
     background-color: #33B3E5;
     color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 100%;
     min-width: 150px;
     max-height: 150px;
 }
 
 .list-users li:hover {
-    background-color: #0099cc;
+    background-color: #f6993f;
 }
 
 .list-photos {
-    display: inherit;
+    height: 80vh;
+    overflow-y: auto;
+    text-align: center;
 }
 
 .list-photos img {
     display: inline-block;
+    margin: 8px;
     padding: 8px;
-    margin-bottom: 7px;
     color: #ffffff;
-    max-width: 200px;
-    max-height: 200px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    height: 20vh;
+    align-items: stretch;
 }
 
-.list-photos h2 {
-    display: inherit;
-    text-align: center;
-    text-transform: uppercase;
-    padding-bottom: 15px;
+.list-photos img:hover {
+    background-color: #f6993f;
 }
-
-.list-photos ul {
-    list-style-type: none;
-    margin: auto;
-    text-align: center;
-    padding: 0;
-}
-
 
 /* Screens where width is greater than height */
 @media only screen and (orientation: landscape) {
@@ -233,11 +216,4 @@ table {
         width: 100%;
     }
 
-    .list-users {
-        visibility: hidden;
-    }
-
-    .menu-users {
-        visibility: visible;
-    }
 }

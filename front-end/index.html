@@ -5,12 +5,12 @@
     <title>Junior Dev Challenge</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/html" href="front-end/css/bobstyle.css">
+    <link type="text/css" rel="stylesheet" href="css/bobstyle.css" media="screen,projection"/>
 </head>
 
 <body>
 
-    <div class="list-users col-land-4">
+    <div class="list-users col-land-2 col-port-2">
         <ul data-bind="foreach: users, visible: users().length > 0">
             <li data-bind="click: $root.onClickUser">
                 <p data-bind="text: name"></p>
@@ -18,8 +18,8 @@
         </ul>
     </div>
 
-    <div class="list-albums col-land-6" data-bind="visible: showAlbums">
-        <p data-bind="text: user"></p>
+    <div class="list-albums col-land-10 col-port-10" data-bind="visible: showAlbums">
+        <h2 data-bind="text: user"></h2>
         <select data-bind=" options: albums, 
                             optionsText: 'title', 
                             value: album,
@@ -27,14 +27,12 @@
                             optionsCaption: 'Albums'"></select>
     </div>
 
-    <div class="list-photos col-land-4">
-        <ul data-bind="foreach: photos, visible: photos().length > 0">
-            <img  data-bind="attr: { src: url, alt: title }"/>
-        </ul>
+    <div class="list-photos col-land-10 col-port-10" data-bind="foreach: photos, visible: photos().length > 0">
+        <img  data-bind="attr: { src: url, alt: title, title: title }"/>
     </div>
 
-    <footer>
-        <p class="bg-red-darkest footer ">Developed and powered by Bobby Newton</p>
+    <footer class="footer col-land-12 col-port-12">
+        <h3>Developed by Bobby Newton | bobdevop@gmail.com | GitHub: bobby-newton </h3>
         <script src="js/lib/knockout.js"></script>
         <script src="js/lib/jquery.min.js"></script>
         <script src="js/index.js"></script>
