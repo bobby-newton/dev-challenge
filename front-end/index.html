@@ -10,7 +10,12 @@
 
 <body>
 
-    <div class="list-users col-land-2 col-port-2">
+    <!-- Section list-users
+        Users are automatically loaded together with the webpage.
+        For each user, add to the ul one li and a p with text content being the name of the user.
+        In addition, also adds a on click listener to each user. 
+    -->
+    <div class="list-users col-land-2 col-port-12">
         <div class="list-users-content">
             <ul data-bind="foreach: users, visible: users().length > 0">
                 <li data-bind="click: $root.onClickUser">
@@ -20,7 +25,15 @@
         </div>
     </div>
 
-    <div class="list-albums col-land-10 col-port-10" data-bind="visible: showAlbums">
+    <!-- Section list-albuns (User name / Albums Drop Down menu 
+        Initially this section is hidden.
+        This section is only displayed once a user has been selected.
+        Visibility is controlled by content (true/false) of the observable showAlbums.
+        For each album, add an option to the select menu, on which the title of the albumis used as the option text.
+        In addition, add a on click listener to each album / option.
+        When an option is clicked the selected album is stored in the observable album / the option value.
+    -->
+    <div class="list-albums col-land-10 col-port-12" data-bind="visible: showAlbums">
         <h2 data-bind="text: user"></h2>
         <select data-bind=" options: albums, 
                             optionsText: 'title', 
@@ -29,7 +42,14 @@
                             optionsCaption: 'Albums'"></select>
     </div>
 
-    <div class="list-photos col-land-10 col-port-10" data-bind="foreach: photos, visible: photos().length > 0">
+    <!-- Section list-photos 
+        Initially this section is hidden.
+        This section is only displayed once an album has been selected.
+        Visibility is controlled by the size of the observable array of photos.
+        For each photo, add an img item with its attributes src set to the photo url, 
+        and alt and tilte set to the photo url and title.
+    -->
+    <div class="list-photos col-land-10 col-port-12" data-bind="foreach: photos, visible: photos().length > 0">
         <img data-bind="attr: { src: url, alt: title, title: title }" />
     </div>
 

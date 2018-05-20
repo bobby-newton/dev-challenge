@@ -1,41 +1,41 @@
+// Object that represents a User.
 function User(data) {
     var self = this;
     self.name = data.name;
     self.id = data.id;
 }
 
+// Object that represents an Album.
 function Album(data) {
     var self = this;
     self.title = data.title;
     self.id = data.id;
-    self.userId = data.userId;
 }
 
-
+// Object that represents a Photo.
 function Photo(data) {
     var self = this;
-    self.albumId = data.albumId;
     self.id = data.id;
     self.title = data.title;
     self.url = data.url;
-    self.thumbnailUrl = data.thumbnailUrl;
 }
 
+// Represents the data and operations in the UI.
 var ViewModel = function () {
-    // Data
+    // 1. Declare the data variables
     var self = this;
-    self.users = ko.observableArray([]);
-    self.user = ko.observable();
-    self.showAlbums = ko.observable(false);
-    self.albums = ko.observableArray([]);
-    self.album = ko.observable();
-    self.photos = ko.observableArray([]);
+    self.users = ko.observableArray([]); // Stores an observable array of User objects.
+    self.user = ko.observable(); // Stores a reference to the selected User object.
+    self.showAlbums = ko.observable(false); // Controls the visibility of the section list-albuns (User name / Albums drop-down menu).
+    self.albums = ko.observableArray([]); // Stores an observable array of Album objects.
+    self.album = ko.observable(); // Stores a reference to the selected Album object.
+    self.photos = ko.observableArray([]); // Stores an obervable array of Photo objects.
 
-    // Operations
+    // 2. Declare the operations
     self.onClickUser = function (user) {
         self.user(user.name);
         self.showAlbums(true);
-        self.photos([]);
+        self.photos([])
 
         // Load user albums from JSONPlaceholder, convert it to Album instances, then populate self.albums
         $.getJSON("https://jsonplaceholder.typicode.com/albums", {
@@ -49,18 +49,28 @@ var ViewModel = function () {
     };
 
     self.onClickAlbum = function () {
-        // Load album photos from JSONPlaceholder, convert it to Photos instances, then populate self.photos
-        $.getJSON("https://jsonplaceholder.typicode.com/photos", {
-            "albumId": self.album().id
-        }, function (allData) {
-            var mappedPhotos = $.map(allData, function (data) {
-                return new Photo(data);
+
+        
+        if (self.album()) { // If selected album is defined/ not null, fetch photos for the selected album
+
+            // Load album photos from JSONPlaceholder, convert it to Photos instances, then populate self.photos
+            $.getJSON("https://jsonplaceholder.typicode.com/photos", {
+                "albumId": self.album().id
+            }, function (allData) {
+                var mappedPhotos = $.map(allData, function (data) {
+                    return new Photo(data);
+                });
+                self.photos(mappedPhotos);
             });
-            self.photos(mappedPhotos);
-        });
+
+        } else { // Otherwise reset photos (for example, when we click the select album captions 'Albums')
+            self.photos([]);
+        }
+        
+
     }
 
-    // Load users from JSONPlaceholder, convert it to User instances, then populate self.users
+    // 3. Load users from JSONPlaceholder, convert it to User instances, then populate self.users
     $.getJSON("https://jsonplaceholder.typicode.com/users", function (allData) {
         var mappedUsers = $.map(allData, function (data) {
             return new User(data)
